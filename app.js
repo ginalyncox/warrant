@@ -279,7 +279,7 @@
         <div class="ex-head"><div><p class="eyebrow">Exercise</p><h2 class="h-sec">Fourteen claims from the stage</h2></div>${scoreLine(right, answered, EVIDENCE.length)}</div>
         <div class="items">${items}</div>
         <div class="actions"><button class="btn btn-ghost" data-reset="evidence">Reset answers</button></div>
-        ${answered === EVIDENCE.length ? `<div class="note"><h3>Professor's note</h3><p class="small">Scored on accuracy alone, about 80% of Sand's checkable claims held up against about 42% of Lahn's. Remember the selection effect: Lahn made more specific numerical claims, so he had more chances to be wrong. An analyst reports that caveat rather than hiding it.</p></div>` : ''}
+        ${answered === EVIDENCE.length ? `<div class="note"><h3>Professor's note</h3><p class="small">Scored on accuracy alone, five of Sand's six claims held up (the sixth is unverifiable), against one of Lahn's seven checkable claims, with one more needing context. Remember the selection effect: Lahn made more specific numerical claims, so he had more chances to be wrong. An analyst reports that caveat rather than hiding it.</p></div>` : ''}
       </section>${modFoot('evidence')}</div>`;
   }
 
