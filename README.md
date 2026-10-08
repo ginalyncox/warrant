@@ -5,7 +5,7 @@ An interactive course that teaches political debate analysis from undergraduate 
 ## What's inside
 
 - **Level I, Foundations:** flowing a debate, Toulmin argument diagrams, fallacy identification
-- **Level II, Judgment:** an evidence lab with sourced fact-checks, and rubric grading with an answer key
+- **Level II, Judgment:** an evidence lab with sourced fact-checks, checking a viral post against primary records, and rubric grading with an answer key
 - **Level III, Theory:** nine theoretical lenses (pragma-dialectics, Walton, Benoit, Burke, McGee, Fisher, and more), functional coding, and a research-question builder
 - **Level IV, Philosophy PhD:** formal logic using reconstructed debate arguments, and a gap map for doctoral preparation
 - A searchable, annotatable transcript reader, a model seminar paper, and a reading list

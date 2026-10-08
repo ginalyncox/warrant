@@ -9,9 +9,9 @@
     lensOpen: new Set(), lensNotes: {},
     benoit: {}, benoitChecked: false,
     rq: { theory: 'walton', phen: 'res', method: 'recon' },
-    trSeg: 0, trQuery: '', notes: [], logic: {}, gapRate: {}, gapMat: new Set()
+    trSeg: 0, trQuery: '', notes: [], logic: {}, gapRate: {}, gapMat: new Set(), viral: {}, opin: {}
   };
-  const ORDER = ['flow', 'toulmin', 'fallacy', 'evidence', 'rubric', 'lenses', 'benoit', 'research', 'logic', 'gaps'];
+  const ORDER = ['flow', 'toulmin', 'fallacy', 'evidence', 'viral', 'rubric', 'lenses', 'benoit', 'research', 'logic', 'gaps'];
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -104,7 +104,7 @@
       <section class="hero">
         <p class="eyebrow">Iowa governor debate · October 6, 2026</p>
         <h1 class="h-hero">Read a debate the way a <em>professor</em> does.</h1>
-        <p class="lede">Ten modules take you from flowing arguments and spotting fallacies to grading a round, applying doctoral-level theory, and preparing for a philosophy PhD. Every exercise uses real exchanges between Rob Sand and Zach Lahn, with answer keys you can argue with.</p>
+        <p class="lede">Eleven modules take you from flowing arguments and spotting fallacies to grading a round, applying doctoral-level theory, and preparing for a philosophy PhD. Every exercise uses real exchanges between Rob Sand and Zach Lahn, with answer keys you can argue with.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#m-${ORDER.find((id) => !state.done.has(id)) || 'flow'}">${state.done.size ? 'Continue the course' : 'Start with Module 01'}</a>
           <a class="btn btn-ghost" href="#transcript">Read the transcript</a>
@@ -232,7 +232,7 @@
         <div class="prose">
           <h2 class="h-sec">Relevance is the test</h2>
           <p>Ask: if the attack were true, would it give me a reason to reject the claim being debated? If yes, it may be legitimate even when personal. If no, it is a diversion.</p>
-          <p>Two of the ten excerpts below are legitimate arguments. Labeling everything a fallacy is its own error, and the one doctoral readers most often catch in student work.</p>
+          <p>Two of the eleven excerpts below are legitimate arguments. Labeling everything a fallacy is its own error, and the one doctoral readers most often catch in student work.</p>
         </div>
         <aside><h3>Watch for</h3><dl>${FALLACY_OPTIONS.slice(0, 4).map((p) => `<div><dt>${esc(p)}</dt><dd>${esc(FALLACY_DEFS[p])}</dd></div>`).join('')}</dl></aside>
       </section>
@@ -281,6 +281,48 @@
         <div class="actions"><button class="btn btn-ghost" data-reset="evidence">Reset answers</button></div>
         ${answered === EVIDENCE.length ? `<div class="note"><h3>Professor's note</h3><p class="small">Scored on accuracy alone, about 80% of Sand's checkable claims held up against about 42% of Lahn's. Remember the selection effect: Lahn made more specific numerical claims, so he had more chances to be wrong. An analyst reports that caveat rather than hiding it.</p></div>` : ''}
       </section>${modFoot('evidence')}</div>`;
+  }
+
+
+  /* ---------- 05 VIRAL ---------- */
+  function viral() {
+    const a = state.viral;
+    const full = (i) => a[i] && a[i].verdict && a[i].tier;
+    const answered = VIRAL.filter((x, i) => full(i)).length;
+    const right = VIRAL.filter((x, i) => full(i) && a[i].verdict === x.verdict && a[i].tier === x.tier).length;
+    const items = VIRAL.map((x, i) => { const v = a[i] || {}; const f = full(i); const ok = f && v.verdict === x.verdict && v.tier === x.tier;
+      const row = (label, opts, field) => `<div class="chip-row"><span>${label}</span><div class="choices">${opts.map((o) => `<button class="chip ${f && o === x[field] ? 'is-key' : ''}" data-vr="${i}" data-f="${field}" data-v="${esc(o)}" aria-pressed="${v[field] === o}" ${f ? 'disabled' : ''}>${esc(o)}</button>`).join('')}</div></div>`;
+      return `<article class="item ${f ? (ok ? 'correct' : 'wrong') : ''}">
+        <div class="item-top"><span>Claim ${i + 1} of ${VIRAL.length}</span></div>
+        <p class="quote">${esc(x.claim)}</p>
+        ${row('Verdict', VIRAL_VERDICTS, 'verdict')}${row('Best source', TIERS, 'tier')}
+        ${f ? `<div class="feedback ${ok ? 'ok' : 'no'}"><span class="verdict">${ok ? 'Correct' : 'Key: ' + esc(x.verdict) + ' · ' + esc(x.tier)}</span><span>${esc(x.why)}${x.url ? ' Source: ' + ext(x.url, x.src) + '.' : ''}</span></div>` : ''}
+      </article>`; }).join('');
+    const op = state.opin;
+    const opRows = OPINION_PAIRS.map((p, i) => { const v = op[i];
+      return `<div class="t-frag ${v ? (v === p.key ? 'correct' : 'wrong') : ''}"><p>${esc(p.x)}</p>
+        <div class="seg" role="group" aria-label="Fact or opinion">${['Fact', 'Opinion'].map((o) => `<button data-op="${i}" data-v="${o}" aria-pressed="${v === o}" class="${v && o === p.key ? 'is-key' : ''}" ${v ? 'disabled' : ''}>${o}</button>`).join('')}</div></div>`; }).join('');
+    return `<div class="wrap">${modHead('viral', 'Most political claims reach voters as forwarded posts, not debate transcripts. A post can mix verified facts, loose wording, and claims with no source at all, and the true parts make the false parts more believable. This module practices taking one apart.')}
+      <section class="concept">
+        <div class="prose">
+          <h2 class="h-sec">Check every claim separately</h2>
+          <p>A post is not true or false as a whole. Break it into individual claims, then check each one. A timeline that gets five dates right and one wrong is still wrong about that one, and the one may be the claim doing the persuading.</p>
+          <p>Read laterally: leave the post and search for who else reports each claim. When reporting cites a record, go to the record if you can. A court docket, a voter file, or a property deed outranks any summary of it.</p>
+          <p>When a claim has no source, the burden of proof stays with whoever made it. "I couldn't find it" is not proof it is false, but it is a reason not to repeat it.</p>
+        </div>
+        <aside><h3>Source ladder</h3><dl>${SOURCE_LADDER.map((s) => `<div><dt>${esc(s.t)}</dt><dd>${esc(s.d)}</dd></div>`).join('')}</dl></aside>
+      </section>
+      <section class="exercise">
+        <div class="ex-head"><div><p class="eyebrow">Exercise</p><h2 class="h-sec">Take apart a forwarded timeline</h2></div>${scoreLine(right, answered, VIRAL.length)}</div>
+        <p class="small muted" style="margin-bottom:var(--space-6)">These claims come from a real post that circulated about the Republican nominee after the debate. For each one, give a verdict and the best type of source available to check it.</p>
+        <div class="items">${items}</div>
+      </section>
+      <section class="exercise">
+        <div class="ex-head"><div><p class="eyebrow">Exercise</p><h2 class="h-sec">Separate facts from opinions before you post</h2></div></div>
+        <div class="item t-card">${opRows}</div>
+        <div class="note"><h3>Why this matters</h3><p class="small">You are entitled to your opinions, and your bias does not make your factual argument wrong; judging an argument by its source is the genetic fallacy from Module 03. But when opinions are mixed into factual claims, readers can dismiss the facts along with them. Put the checkable facts first, then label your conclusion as your own view.</p></div>
+        <div class="actions"><button class="btn btn-ghost" data-reset="viral">Reset answers</button></div>
+      </section>${modFoot('viral')}</div>`;
   }
 
   /* ---------- 05 RUBRIC ---------- */
@@ -608,7 +650,7 @@
   }
 
   /* ---------- Router ---------- */
-  const VIEWS = { home, transcript, readings, 'm-flow': flow, 'm-toulmin': toulmin, 'm-fallacy': fallacy, 'm-evidence': evidence, 'm-rubric': rubric, 'm-lenses': lenses, 'm-benoit': benoit, 'm-research': research, 'm-logic': logic, 'm-gaps': gaps, paper };
+  const VIEWS = { home, transcript, readings, 'm-flow': flow, 'm-toulmin': toulmin, 'm-fallacy': fallacy, 'm-evidence': evidence, 'm-viral': viral, 'm-rubric': rubric, 'm-lenses': lenses, 'm-benoit': benoit, 'm-research': research, 'm-logic': logic, 'm-gaps': gaps, paper };
   const LABELS = { home: 'Syllabus', transcript: 'Transcript reader', readings: 'Reading list', paper: 'Model paper' };
   function render(keepScroll) {
     const r = location.hash.replace('#', '') || 'home';
@@ -647,6 +689,16 @@
     else if (d.rreveal !== undefined) { state.rubricRevealed[state.rubricTab] = true; markDone('rubric'); render(true); }
     else if (d.rfill !== undefined) { const R = RUBRICS[state.rubricTab]; R.rows.forEach((r, i) => { state.rubric[state.rubricTab][i + 'sand'] = String(r.sand); state.rubric[state.rubricTab][i + 'lahn'] = String(r.lahn); }); render(true); }
     else if (d.lmodel !== undefined) { state.lensOpen.add('m' + d.lmodel); if (LENSES.filter((l, i) => state.lensOpen.has('m' + i)).length >= 4) markDone('lenses'); render(true); }
+    else if (d.vr !== undefined) {
+      const o = state.viral[d.vr] || (state.viral[d.vr] = {}); o[d.f] = d.v;
+      if (VIRAL.every((x, i) => state.viral[i] && state.viral[i].verdict && state.viral[i].tier) && Object.keys(state.opin).length === OPINION_PAIRS.length) markDone('viral');
+      render(true);
+    }
+    else if (d.op !== undefined) {
+      state.opin[d.op] = d.v;
+      if (VIRAL.every((x, i) => state.viral[i] && state.viral[i].verdict && state.viral[i].tier) && Object.keys(state.opin).length === OPINION_PAIRS.length) markDone('viral');
+      render(true);
+    }
     else if (d.lg !== undefined) {
       const o = state.logic[d.lg] || (state.logic[d.lg] = {}); o[d.f] = d.v;
       if (LOGIC.every((x, i) => state.logic[i] && state.logic[i].form && state.logic[i].valid)) markDone('logic');
@@ -684,6 +736,7 @@
       if (k === 'rubric') { state.rubric[state.rubricTab] = {}; state.rubricRevealed[state.rubricTab] = false; }
       if (k === 'benoit') { state.benoit = {}; state.benoitChecked = false; }
       if (k === 'logic') state.logic = {};
+      if (k === 'viral') { state.viral = {}; state.opin = {}; }
       state.done.delete(k); render(true);
     }
   });

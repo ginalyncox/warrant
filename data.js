@@ -10,7 +10,7 @@ window.SEG = {
 
 window.COURSE = [
   { level: 'I', name: 'Foundations', sub: 'Undergraduate argumentation', modules: ['flow', 'toulmin', 'fallacy'] },
-  { level: 'II', name: 'Judgment', sub: 'Debate-professor evaluation', modules: ['evidence', 'rubric'] },
+  { level: 'II', name: 'Judgment', sub: 'Debate-professor evaluation', modules: ['evidence', 'viral', 'rubric'] },
   { level: 'III', name: 'Theory', sub: 'Doctoral rhetorical criticism', modules: ['lenses', 'benoit', 'research'] }
 ];
 
@@ -19,10 +19,11 @@ window.MODULES = {
   toulmin: { n: '02', title: 'Anatomy of an Argument', short: 'Toulmin', mins: 15 },
   fallacy: { n: '03', title: 'Fallacy or Fair Hit?', short: 'Fallacies', mins: 15 },
   evidence: { n: '04', title: 'Evidence Lab', short: 'Evidence', mins: 20 },
-  rubric: { n: '05', title: 'Grade the Round', short: 'Rubrics', mins: 15 },
-  lenses: { n: '06', title: 'Theoretical Lenses', short: 'Lenses', mins: 25 },
-  benoit: { n: '07', title: 'Functional Coding', short: 'Coding', mins: 20 },
-  research: { n: '08', title: 'Designing a Study', short: 'Research', mins: 15 }
+  viral: { n: '05', title: 'Checking a Viral Post', short: 'Viral posts', mins: 20 },
+  rubric: { n: '06', title: 'Grade the Round', short: 'Rubrics', mins: 15 },
+  lenses: { n: '07', title: 'Theoretical Lenses', short: 'Lenses', mins: 25 },
+  benoit: { n: '08', title: 'Functional Coding', short: 'Coding', mins: 20 },
+  research: { n: '09', title: 'Designing a Study', short: 'Research', mins: 15 }
 };
 
 /* ---------- 01 FLOW ---------- */
@@ -106,12 +107,13 @@ window.TOULMIN = [
 ];
 
 /* ---------- 03 FALLACY ---------- */
-window.FALLACY_OPTIONS = ['Ad hominem', 'Straw man', 'Red herring', 'Tu quoque', 'Appeal to emotion', 'Unmet burden of proof', 'Legitimate argument'];
+window.FALLACY_OPTIONS = ['Ad hominem', 'Straw man', 'Red herring', 'Tu quoque', 'Genetic fallacy', 'Appeal to emotion', 'Unmet burden of proof', 'Legitimate argument'];
 window.FALLACY_DEFS = {
   'Ad hominem': 'Attacking the person instead of the argument, when the personal fact is irrelevant to the claim.',
   'Straw man': 'Restating the opponent\'s position in a weaker or distorted form, then attacking that version.',
   'Red herring': 'Introducing an unrelated issue to pull attention away from the question at hand.',
   'Tu quoque': '"You do it too." Deflecting criticism by accusing the critic of the same thing.',
+  'Genetic fallacy': 'Judging a claim true or false by where it came from, who funded it, or why someone believes it, rather than by the evidence.',
   'Appeal to emotion': 'Substituting fear, pity, or outrage for reasons.',
   'Unmet burden of proof': 'Asserting a contested claim without supporting it, or demanding the other side disprove it.',
   'Legitimate argument': 'A personal or pointed claim that is relevant and supported. Not every attack is a fallacy.'
@@ -135,6 +137,8 @@ window.FALLACY = [
     why: 'Lahn offered specific proposals (innovation zones, saturated buffers, antitrust funding). Calling them platitudes attacks a weaker version of his case.' },
   { who: 'Lahn', src: 'health', time: '5:52', q: '"During COVID, Rob Sand was lock step with Anthony Fauci. He was a COVID Karen."', key: 'Ad hominem',
     why: 'Name-calling inside an exchange about cancer treatments. It gives the audience no reason to think Sand\'s claim is false.' },
+  { who: 'Lahn', src: 'edu', time: '11:35', q: '"He\'s been spreading this lie using money that his family has given him to do that all over the airwaves."', key: 'Genetic fallacy',
+    why: 'Who paid for the ads says nothing about whether the residency claim is true. The same error runs the other way: a voter who dislikes a candidate can still make a correct argument about him. Bias affects how much we trust a source, not whether the argument is valid.' },
   { who: 'Lahn', src: 'econ', time: '13:46', q: '"They over-collected taxes to the tune of $4 billion in the taxpayer relief fund... and they\'ve had a planned draw down."', key: 'Legitimate argument',
     why: 'Directly answers Sand\'s "how will you pay for it" with a specific, accurate funding source. This is clean refutation.' }
 ];
@@ -309,8 +313,8 @@ window.READINGS = [
 
 /* ---------- LEVEL IV: PHILOSOPHY PhD TRACK ---------- */
 window.COURSE.push({ level: 'IV', name: 'Philosophy PhD', sub: 'Filling the gaps for doctoral study', modules: ['logic', 'gaps'] });
-window.MODULES.logic = { n: '09', title: 'Formal Logic from the Debate', short: 'Formal logic', mins: 20 };
-window.MODULES.gaps = { n: '10', title: 'Your Gap Map', short: 'Gap map', mins: 15 };
+window.MODULES.logic = { n: '10', title: 'Formal Logic from the Debate', short: 'Formal logic', mins: 20 };
+window.MODULES.gaps = { n: '11', title: 'Your Gap Map', short: 'Gap map', mins: 15 };
 
 window.FORMS = ['Modus ponens', 'Modus tollens', 'Disjunctive syllogism', 'Affirming the consequent', 'Undistributed middle'];
 window.FORM_DEFS = {
@@ -357,3 +361,39 @@ window.UIOWA = {
     'Unofficial transcripts'
   ]
 };
+
+/* ---------- 05 VIRAL POST ---------- */
+window.TIERS = ['Primary record', 'Original news reporting', 'Partisan or advocacy source', 'No source'];
+window.VIRAL_VERDICTS = ['Accurate', 'Partly wrong', 'Unsupported'];
+window.VIRAL = [
+  { claim: 'He "re-registered his voting address in Iowa on October 17, 2024," just meeting the two-year residency requirement.', verdict: 'Accurate', tier: 'Original news reporting',
+    why: 'Kansas Reflector and Iowa Starting Line report the date from voter registration records. The voter file itself is the primary record; the reporting is the best source a reader can reach quickly.', src: 'Iowa Starting Line', url: 'https://iowastartingline.com/news/meet-zach-lahn-koch-political-operative-iowa-governor/' },
+  { claim: 'He cast votes "in Kansas elections through the 2018, 2020, and 2022 election cycles."', verdict: 'Accurate', tier: 'Original news reporting',
+    why: 'PolitiFact checked Kansas Secretary of State records: the 2018 and 2020 general elections and the August 2022 primary.', src: 'PolitiFact', url: 'https://politifact.com/article/2026/oct/06/zach-lahn-rob-sand-iowa-governor-midterm-elections/' },
+  { claim: 'He and his current wife married "days after her divorce decree was finalized."', verdict: 'Partly wrong', tier: 'Primary record',
+    why: 'The Sedgwick County District Court docket, searchable on Kansas CaseSearch, shows his divorce decree signed June 8, 2020. Reporting says the couple applied for a Montana marriage license 11 days after his divorce, not hers, and the wedding date itself is not public. A license application is not a wedding.', src: 'Kansas CaseSearch', url: 'https://casesearch.kscourts.gov/' },
+  { claim: 'A specific, serious allegation about events in his private life in 2019.', verdict: 'Unsupported', tier: 'No source',
+    why: 'No news outlet that covered the marriages reports it, and the court docket does not address it. The burden of proof sits with whoever makes the claim. The responsible move is to ask the sender for a source and, absent one, not repeat it. Repeating an unsourced allegation spreads it even when you mean to question it.', src: null, url: null },
+  { claim: 'He "relocated to Montana" from 2012 to 2015.', verdict: 'Partly wrong', tier: 'Original news reporting',
+    why: 'He managed Steve Daines\'s campaign from 2011, became his state director in 2013, and led Americans for Prosperity Montana from 2014. But USA Today reports he moved back to Iowa in 2013 and lived there while running the Montana operation, and the same post says he was in Iowa in 2013 and 2014. Overlapping date ranges inside one post are a red flag.', src: 'USA Today', url: 'https://www.usatoday.com/story/news/politics/2026/10/07/zach-lahn-iowa-governor-campaign/92126454007/' },
+  { claim: 'He worked on Iowa congressional campaigns, "including managing David Young\'s."', verdict: 'Accurate', tier: 'Original news reporting',
+    why: 'He managed Young\'s campaign from July 2013 to July 2014 and also worked for Matt Schultz in 2014.', src: 'Iowa Starting Line', url: 'https://iowastartingline.com/news/meet-zach-lahn-koch-political-operative-iowa-governor/' },
+  { claim: 'His wife is "a Koch heiress."', verdict: 'Partly wrong', tier: 'Original news reporting',
+    why: 'She married into the Koch family in 2010 and divorced in 2020; she was born Annie Breitenbach and worked as a neonatal nurse. "Former daughter-in-law of Charles Koch" is accurate; "heiress" implies an inheritance no source documents.', src: 'Politico', url: 'https://www.politico.com/magazine/story/2018/12/14/koch-brothers-chase-charles-next-generation-223099' },
+  { claim: 'He "launched a gubernatorial campaign built on conservative family values."', verdict: 'Accurate', tier: 'Original news reporting',
+    why: 'At his launch he said Iowa\'s future "depends on strong families, small towns, faith and hard work" and promised to strengthen marriage. "Built on" is a characterization, but a fair one; his campaign also centers cancer, water and taxes.', src: 'The Gazette', url: 'https://www.thegazette.com/campaigns-elections/zach-lahn-joins-crowded-republican-field-for-governor-with-iowa-first-message/' }
+];
+window.SOURCE_LADDER = [
+  { t: 'Primary record', d: 'Court dockets, voter files, property deeds, campaign finance filings, the debate video itself.' },
+  { t: 'Original news reporting', d: 'Journalists who examined the records and name them. Check whether they cite the record or another outlet.' },
+  { t: 'Aggregators', d: 'Sites summarizing someone else\'s reporting. Trace the claim back to whoever did the original work.' },
+  { t: 'Partisan or advocacy sources', d: 'Party and campaign sites. Often accurate on records, selective on framing. Verify before citing.' },
+  { t: 'No source', d: 'Forwarded posts, screenshots, "I heard." Not evidence until it can be traced.' }
+];
+window.OPINION_PAIRS = [
+  { x: 'He voted in Kansas in 2018, 2020 and 2022.', key: 'Fact' },
+  { x: 'He wants the title more than the work.', key: 'Opinion' },
+  { x: 'Iowa deserves a full-time governor.', key: 'Opinion' },
+  { x: 'His plane made 37 trips to Wichita in about seven months.', key: 'Fact' },
+  { x: 'That doesn\'t look like someone who came home for Iowa.', key: 'Opinion' }
+];
