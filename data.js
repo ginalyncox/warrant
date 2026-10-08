@@ -47,7 +47,7 @@ window.FLOW = [
   { seg: 'Economy', from: 'Moderator', arg: 'Would you raise the minimum wage, which hasn\'t moved since 2009?',
     resp: 'Lahn: "Let\'s go deep" into consolidation, then proposes Attorney General antitrust funding.', key: 'Redirected',
     why: 'The antitrust plan is real policy, but it never answers yes or no on the minimum wage. Judges score responsiveness to the question asked.' },
-  { seg: 'Education', from: 'Lahn', arg: 'Per-pupil spending rose about 50% (inflation-adjusted) since 1992 while Iowa fell 27 places, so money alone is not the problem.',
+  { seg: 'Education', from: 'Lahn', arg: 'Per-pupil spending rose about 50% (inflation-adjusted) since 1992 while Iowa dropped from first to 27th, so money alone is not the problem.',
     resp: 'Sand never addresses the spending-versus-results argument.', key: 'Dropped',
     why: 'This is Lahn\'s strongest data-driven argument against Sand\'s 5% proposal, and it goes unanswered for the rest of the debate.' },
   { seg: 'Education', from: 'Sand', arg: 'Private schools can reject students while taking public money; restore an income limit on vouchers.',
@@ -74,7 +74,7 @@ window.TOULMIN_DEFS = {
   'Data': 'The facts or evidence offered in support.',
   'Warrant': 'The reasoning that connects the data to the claim. Often unstated.',
   'Qualifier': 'Words that limit the strength or scope of the claim.',
-  'Rebuttal gap': 'The obvious objection the argument leaves unanswered.'
+  'Rebuttal gap': 'Toulmin\'s rebuttal names the conditions under which the claim would not hold. Here: the strongest exception the speaker leaves unanswered. (Toulmin\'s sixth part, backing, supports the warrant itself.)'
 };
 window.TOULMIN = [
   { title: 'Sand on school funding', who: 'Sand', src: 'edu', time: '2:35',
@@ -138,7 +138,7 @@ window.FALLACY = [
   { who: 'Lahn', src: 'health', time: '5:52', q: '"During COVID, Rob Sand was lock step with Anthony Fauci. He was a COVID Karen."', key: 'Ad hominem',
     why: 'Name-calling inside an exchange about cancer treatments. It gives the audience no reason to think Sand\'s claim is false.' },
   { who: 'Lahn', src: 'edu', time: '11:35', q: '"He\'s been spreading this lie using money that his family has given him to do that all over the airwaves."', key: 'Genetic fallacy',
-    why: 'Who paid for the ads says nothing about whether the residency claim is true. The same error runs the other way: a voter who dislikes a candidate can still make a correct argument about him. Bias affects how much we trust a source, not whether the argument is valid.' },
+    why: 'Who paid for the ads says nothing about whether the residency claim is true. The same error runs the other way: a voter who dislikes a candidate can still make a correct argument about him. Bias affects how much we trust a source, not whether the argument is valid. Circumstantial ad hominem is a defensible second answer; genetic fits better because the target is the claim\'s origin (who paid for the ads), not Sand\'s character.' },
   { who: 'Lahn', src: 'econ', time: '13:46', q: '"They over-collected taxes to the tune of $4 billion in the taxpayer relief fund... and they\'ve had a planned draw down."', key: 'Legitimate argument',
     why: 'Directly answers Sand\'s "how will you pay for it" with a specific, accurate funding source. This is clean refutation.' }
 ];
@@ -162,7 +162,7 @@ window.EVIDENCE = [
   { who: 'Lahn', q: 'A saturated buffer at Bear Creek "removed 100% of the nitrate load."', type: 'Verifiable fact', verdict: 'Overstated',
     why: 'It removed 100% of the nitrate from 60% of the tile flow in its first year.', src: 'ISU Leopold Center', url: 'https://www.leopold.iastate.edu/files/page/files/Practices-to-Improve-Water-Quality_revised_9-2016_1.pdf' },
   { who: 'Lahn', q: '"There is no cancer vaccine... There\'s not any in trial."', type: 'Verifiable fact', verdict: 'False',
-    why: 'Merck calls its mRNA melanoma product a "therapy," but it just met its endpoints in a Phase 3 trial.', src: 'Merck', url: 'https://www.merck.com/news/merck-and-moderna-announce-phase-3-interpath-001-trial-of-intismeran-autogene-plus-keytruda-met-endpoints-of-recurrence-free-survival-rfs-and-distant-metastasis-free-survival-dmfs-in-patient/' },
+    why: 'Cancer vaccines exist: the HPV vaccine (FDA-approved 2006) prevents cervical and other cancers, and sipuleucel-T (Provenge, FDA-approved 2010) is a therapeutic vaccine for prostate cancer. "Not any in trial" is also false: Merck and Moderna\'s individualized mRNA melanoma product, which Merck calls a "therapy," just met its endpoints in a Phase 3 trial. The vaccine/therapy distinction Lahn draws is real but does not rescue the claim.', src: 'Merck', url: 'https://www.merck.com/news/merck-and-moderna-announce-phase-3-interpath-001-trial-of-intismeran-autogene-plus-keytruda-met-endpoints-of-recurrence-free-survival-rfs-and-distant-metastasis-free-survival-dmfs-in-patient/' },
   { who: 'Sand', q: 'Iowa has the highest radon levels in the country.', type: 'Verifiable fact', verdict: 'Accurate',
     why: 'Iowa has the highest average indoor radon concentration in the United States.', src: 'Iowa Starting Line', url: 'https://iowastartingline.com/cancer-in-iowa/radon-exposure-fueling-iowa-lung-cancer/' },
   { who: 'Lahn', q: 'The state "over-collected" about $4 billion into the Taxpayer Relief Fund.', type: 'Verifiable fact', verdict: 'Accurate',
@@ -177,7 +177,7 @@ window.EVIDENCE = [
     why: 'True of synthetic nitrate fertilizer; the company does sell an organic high-nitrogen product for gardens.', src: 'PolitiFact', url: 'https://politifact.com/article/2026/oct/06/zach-lahn-rob-sand-iowa-governor-midterm-elections/' }
 ];
 
-/* ---------- 05 RUBRICS ---------- */
+/* ---------- 06 RUBRICS ---------- */
 window.LETTERS = ['A', 'A−', 'B+', 'B', 'B−', 'C+', 'C', 'C−', 'D+', 'D', 'F'];
 window.LETTER_GPA = { 'A': 4.0, 'A−': 3.7, 'B+': 3.3, 'B': 3.0, 'B−': 2.7, 'C+': 2.3, 'C': 2.0, 'C−': 1.7, 'D+': 1.3, 'D': 1.0, 'F': 0 };
 window.RUBRICS = {
@@ -206,23 +206,23 @@ window.RUBRICS = {
   }
 };
 
-/* ---------- 06 LENSES ---------- */
+/* ---------- 07 LENSES ---------- */
 window.LENSES = [
   { name: 'Pragma-dialectics', who: 'van Eemeren & Grootendorst',
     idea: 'A debate is an attempt to resolve a difference of opinion. Ten rules govern a reasonable "critical discussion." A fallacy is a violation of one of those rules.',
-    key: 'Strategic maneuvering: speakers try to be reasonable and effective at once. The analyst asks where effectiveness overtook reasonableness.',
+    key: 'Strategic maneuvering (van Eemeren & Houtlosser): speakers try to be reasonable and effective at once. The analyst asks where effectiveness overtook reasonableness.',
     prompt: 'Which discussion rule does Lahn\'s "central lie" response to the Kansas claim violate, and which rule does Sand\'s "you\'re not in Iowa" violate?',
-    model: 'Sand\'s claim strains the burden-of-proof rule: he advanced a standpoint (Lahn does not live in Iowa) and defended only a weaker one (past Kansas voting). Lahn\'s reply strains the relevance rule: he answered a residency standpoint with arguments about Sand\'s family wealth and motives. A pragma-dialectical reading treats both as derailments of strategic maneuvering, not just bad manners.' },
+    model: 'Sand\'s claim strains Rule 2, the burden-of-proof rule: he advanced a standpoint (Lahn does not live in Iowa) and defended only a weaker one (past Kansas voting). Lahn\'s reply breaks Rule 1, the freedom rule, which is where pragma-dialectics places ad hominem: calling the claim a "central lie" funded by family money attacks Sand\'s motives instead of the standpoint. It also strains Rule 4, relevance, because wealth and motive do not bear on where Lahn lives. A pragma-dialectical reading treats both as derailments of strategic maneuvering, not just bad manners.' },
   { name: 'Argumentation schemes', who: 'Douglas Walton',
     idea: 'Arguments follow recognizable schemes, each with "critical questions." An argument is reasonable or fallacious depending on whether it survives its critical questions.',
     key: 'Ad hominem is not automatically a fallacy. A circumstantial attack can be legitimate if the circumstance is relevant to the claim.',
     prompt: 'Apply the critical questions for circumstantial ad hominem to Sand\'s Kansas attack. Is it legitimate?',
-    model: 'Is the personal circumstance true? Yes, the voting record is documented. Is it relevant to the conclusion? Partly: past residency bears on familiarity and commitment, and availability bears on fitness to serve. Does it support the strong conclusion drawn? No: voting in 2022 does not establish that Lahn lives elsewhere now. Verdict: legitimate as a question about fitness, overreaching as proof of non-residency.' },
+    model: 'In Walton\'s scheme, a circumstantial attack alleges an inconsistency between what a person professes and how they act. Here: Lahn presents himself as a "sixth-generation Iowan," but voted in Kansas through 2022. Is the personal circumstance true? Yes, the voting record is documented. Is it relevant to the conclusion? Partly: past residency bears on familiarity and commitment, and availability bears on fitness to serve. Does it support the strong conclusion drawn? No: voting in 2022 does not establish that Lahn lives elsewhere now. Verdict: legitimate as a question about fitness, overreaching as proof of non-residency.' },
   { name: 'Functional theory', who: 'William Benoit',
     idea: 'Campaign messages do three things: acclaim (praise yourself), attack (criticize the opponent), or defend (respond to an attack). Each concerns policy or character.',
     key: 'Across decades of debates, candidates acclaim more than they attack, and winners tend to emphasize policy over character.',
     prompt: 'Predict the pattern before you code. Who will have the higher ratio of attacks to acclaims, and on which topic?',
-    model: 'Lahn is the likely higher attacker, and his attacks cluster on character (ideology, wealth, career politician). Sand attacks less often but returns repeatedly to one character attack (residency). Test this prediction in Module 07, then ask whether a single debate segment is enough data to generalize.' },
+    model: 'Lahn is the likely higher attacker, and his attacks cluster on character (ideology, wealth, career politician). Sand attacks less often but returns repeatedly to one character attack (residency). Test this prediction in Module 08, then ask whether a single debate segment is enough data to generalize.' },
   { name: 'Identification', who: 'Kenneth Burke',
     idea: 'Persuasion works through identification: the speaker becomes "consubstantial" with the audience by sharing their identity, values, and story.',
     key: 'Division is the flip side. Attacks often try to break an opponent\'s identification with the audience.',
@@ -232,7 +232,7 @@ window.LENSES = [
     idea: 'Ideographs are abstract terms ("freedom," "family") that carry ideological force and summon commitment without precise definition.',
     key: 'The analyst traces how a term is used, contested, and filled with meaning in a specific situation.',
     prompt: 'Identify an ideograph that both candidates claim, and show how each fills it differently.',
-    model: '"Iowa kids" and "family" work as shared ideographs. Lahn: "There\'s no such thing as a Republican kid or a Democrat kid. There\'s just Iowa kids," tied to parental choice and his blended family. Sand ties "kids" to public schools ("My kids go to Iowa public schools"). Same term, competing ideological content.' },
+    model: '<Family> is the clearest ideograph (McGee writes them in angle brackets); "Iowa kids" works more like a local condensation symbol that borrows its force. Lahn: "There\'s no such thing as a Republican kid or a Democrat kid. There\'s just Iowa kids," tied to parental choice and his blended family. Sand ties "kids" to public schools ("My kids go to Iowa public schools"). Same term, competing ideological content.' },
   { name: 'Narrative paradigm', who: 'Walter Fisher',
     idea: 'People judge persuasion as stories, by narrative coherence (does it hang together?) and fidelity (does it ring true to my experience?), more than by formal logic.',
     key: 'A story can persuade even when its statistics fail, if it fits the audience\'s lived experience.',
@@ -242,20 +242,20 @@ window.LENSES = [
     idea: 'Bitzer: discourse responds to a situation\'s exigence, audience, and constraints. Vatz: rhetors create situations by choosing what is salient.',
     key: 'The debate format sets the questions, but candidates decide what the debate is "about."',
     prompt: 'Did the residency issue arise from the situation, or did the candidates make it salient?',
-    model: 'No moderator question was about residency; it surfaced inside an education answer. That supports Vatz: Sand made residency salient, and Lahn amplified it by insisting on responding immediately. Bitzer still helps explain why it resonated: an open-seat race creates an exigence about who is "one of us."' },
+    model: 'No scheduled question was about residency. It surfaced inside the education segment, when Sand said Lahn doesn\'t "spend enough time in Iowa"; the moderator\'s accessibility question came only afterward ("since you brought it up"). That supports Vatz: Sand made residency salient, and Lahn amplified it by insisting on responding immediately. Bitzer still helps explain why it resonated: an open-seat race creates an exigence about who is "one of us."' },
   { name: 'Audience adaptation and pathos', who: 'Perelman & Olbrechts-Tyteca; Aristotle',
     idea: 'Arguments are built for a particular audience. Pathos, the appeal to emotion, is a legitimate mode of proof when the emotion fits the facts; it becomes manipulation when it replaces them.',
     key: 'Separate what the text shows (the appeal) from what it cannot show (the speaker\'s intended audience or private strategy).',
     prompt: 'Lahn repeatedly invokes children: his own, "your children," "Iowa kids," a seven-year-old boy told something is wrong with him. Was he targeting mothers? What can the transcript support, and what can it not?',
     model: 'The transcript supports a sustained parental appeal: "I will also defend your children from people who\'d like to exploit them like Rob Sand" addresses parents directly and turns a residency question into a protective one. It does not show the appeal was aimed at women specifically. Nothing in the text is addressed to mothers, and his "COVID Karen" line uses a gendered insult that could alienate the very voters the claim assumes he courted. A defensible reading: Lahn adapted to an audience of parents and used protective pathos to reframe an attack. Claiming he targeted women would need outside evidence, such as ad targeting, campaign statements, or polling by gender.' },
   { name: 'Ethos and image', who: 'Aristotle; Benoit\'s image repair',
-    idea: 'Ethos is credibility built from practical wisdom, virtue, and goodwill. Image repair studies how speakers defend reputations under attack: denial, evasion, reducing offensiveness, corrective action.',
+    idea: 'Ethos is credibility built from practical wisdom, virtue, and goodwill. Image repair studies how speakers defend reputations under attack. Benoit\'s five strategies: denial, evasion of responsibility, reducing offensiveness, corrective action, and mortification.',
     key: 'Defenses can be categorized and judged for fit with the accusation.',
     prompt: 'Which image-repair strategy does Lahn use on the residency attack, and which does Sand use on the auditor-budget attack?',
-    model: 'Lahn combines denial ("central lie") with reducing offensiveness (bolstering: sixth-generation Iowan; transcendence: this is about my children) and attacking the accuser. Sand uses shifting blame ("my predecessor burned through the state\'s accounts") plus corrective action ("we righted that within our first year").' }
+    model: 'Lahn combines simple denial ("central lie") with three forms of reducing offensiveness: bolstering (sixth-generation Iowan), transcendence (this is about my children), and attacking the accuser. Sand uses denial by shifting blame ("my predecessor burned through the state\'s accounts") plus corrective action ("we righted that within our first year").' }
 ];
 
-/* ---------- 07 BENOIT CODING ---------- */
+/* ---------- 08 BENOIT CODING ---------- */
 window.FUNCTIONS = ['Acclaim', 'Attack', 'Defense'];
 window.TOPICS = ['Policy', 'Character'];
 window.BENOIT = [
@@ -275,7 +275,7 @@ window.BENOIT = [
   { who: 'Sand', q: '"He\'s got platitudes that show that he doesn\'t have the demonstrated knowledge or experience."', f: 'Attack', t: 'Character', note: 'Leadership ability.' }
 ];
 
-/* ---------- 08 RESEARCH ---------- */
+/* ---------- 09 RESEARCH ---------- */
 window.RQ = {
   theories: [
     { id: 'pd', label: 'Pragma-dialectics', lit: 'van Eemeren & Grootendorst; van Eemeren on strategic maneuvering' },
@@ -333,13 +333,13 @@ window.LOGIC = [
     why: 'Invalid. Past Kansas voting is consistent with having since moved. This is the formal shape of the unmet burden of proof from Module 03.' },
   { who: 'Lahn', src: 'edu', time: '4:29', arg: 'If money drove results, rising spending would raise Iowa\'s ranking. Spending rose and the ranking fell. So money does not drive results.',
     form: 'Modus tollens', valid: 'Valid', sym: 'P → Q, ¬Q ∴ ¬P',
-    why: 'Valid. The weak point is the conditional: money could drive results while other factors pulled rankings down. Philosophers call this a ceteris paribus problem.' },
+    why: 'Valid. The weak point is the conditional. Money could drive results while other factors pulled rankings down (a ceteris paribus problem). And a ranking is relative: other states raised spending too, so Iowa could improve in absolute terms and still fall in rank.' },
   { who: 'Social post', src: null, time: null, arg: 'Strong leaders look composed under pressure. Lahn looked composed under pressure. So Lahn is a strong leader.',
     form: 'Undistributed middle', valid: 'Invalid', sym: 'All A are B, x is B ∴ x is A',
     why: 'Invalid. Many people who look composed are not strong leaders. The middle term "looks composed" never covers the whole class.' },
-  { who: 'Sand', src: 'econ', time: '12:47', arg: 'Either you explain how the tax cut is paid for, or you are cutting services or raising taxes somewhere else. You have not explained it. So you are cutting services or raising taxes.',
+  { who: 'Sand', src: 'econ', time: '12:47', arg: 'A tax cut is paid for either by cutting services or by raising taxes somewhere else. Lahn says he will not raise taxes. So his tax cut means cutting services.',
     form: 'Disjunctive syllogism', valid: 'Valid', sym: 'P ∨ Q, ¬P ∴ Q',
-    why: 'Valid, but Lahn attacks the disjunction itself: a reserve fund is a third option. A valid argument with a false premise is unsound. This is how a false dilemma works formally.' },
+    why: 'Valid, but Lahn attacks the disjunction itself: drawing down the $4 billion Taxpayer Relief Fund is a third option. A valid argument with a false premise is unsound. This is how a false dilemma works formally.' },
   { who: 'Lahn', src: 'health', time: '1:58', arg: 'If nitrates are driving Iowa\'s cancer rate, high-nitrate places will have high cancer rates. Iowa has high nitrates and high cancer rates. So nitrates are driving Iowa\'s cancer rate.',
     form: 'Affirming the consequent', valid: 'Invalid', sym: 'P → Q, Q ∴ P',
     why: 'Invalid. The moderator supplied the counterexample: agrarian neighbors without the same cancer rates. Correlation fits the consequent but does not establish the antecedent.' }
@@ -349,7 +349,7 @@ window.UIOWA = {
   areas: [
     { id: 'me', name: 'Metaphysics and epistemology', what: 'Knowledge, justification, testimony, causation, personal identity, free will.', start: 'Feldman, Epistemology; Loux, Metaphysics: A Contemporary Introduction', link: 'Testimony and fact-checking: when should a voter trust a candidate\'s statistic?' },
     { id: 'hist', name: 'History of philosophy', what: 'Ancient (Plato, Aristotle) and early modern (Descartes, Hume, Kant) at minimum.', start: 'Plato, Gorgias; Aristotle, Rhetoric; Hume, Enquiry', link: 'Plato\'s Gorgias is the founding critique of persuasion without knowledge.' },
-    { id: 'logic', name: 'Logic and philosophy of science', what: 'Propositional and predicate logic, proofs, validity; explanation and evidence.', start: 'Bergmann, Moor & Nelson, The Logic Book; Godfrey-Smith, Theory and Reality', link: 'Module 09 is your on-ramp. Doctoral programs expect proofs in predicate logic.' },
+    { id: 'logic', name: 'Logic and philosophy of science', what: 'Propositional and predicate logic, proofs, validity; explanation and evidence.', start: 'Bergmann, Moor & Nelson, The Logic Book; Godfrey-Smith, Theory and Reality', link: 'Module 10 is your on-ramp. Doctoral programs expect proofs in predicate logic.' },
     { id: 'ethics', name: 'Ethics', what: 'Normative theories (consequentialism, deontology, virtue) and metaethics.', start: 'Rachels, The Elements of Moral Philosophy; Shafer-Landau, The Fundamentals of Ethics', link: 'The ethics of deception: is a misleading-but-true claim a lie?' },
     { id: 'value', name: 'Value theory', what: 'Political philosophy, social philosophy, aesthetics.', start: 'Rawls, Political Liberalism (selections); Wolff, An Introduction to Political Philosophy', link: 'Public reason: what kinds of arguments are legitimate in democratic debate?' }
   ],
